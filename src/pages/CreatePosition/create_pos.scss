@@ -1,0 +1,125 @@
+.app-inner-box{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background-color: #031116;
+    color: #6A8582;
+    box-sizing: border-box;
+    padding: 4px 32px 20px 32px;
+    border: 1px solid #1A282D;
+    border-radius: 10px;
+
+    .select-network{
+        margin-bottom: 20px;
+        .network-col{
+            display: flex;
+            flex-direction: column;
+
+            .x{
+                display: flex;
+                flex-direction: column;
+                width: 280px;
+                gap: 10px   ;
+
+                .ethereum{
+                    padding: 5px;
+                    border: 1px solid sandybrown;
+                    background-color: #031116;
+                    border-radius: 10px;
+                    color: rgb(108, 202, 108);
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    justify-content: center;
+                }
+
+                select{
+                    width: 100%;
+                    border-radius: 10px;
+                    height: 40px;
+                    background-color: #031116;
+                    color: whitesmoke;
+
+                    option{
+                        margin-left: 10px;
+                    }
+                }
+                .text{
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 12px;
+                    color: #D3E0D9;
+                }
+            }
+
+            .network-col-top{
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+                column-gap: 10px;
+            }
+
+            .network-col-bottom{
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+                column-gap: 30px;
+            }
+        }
+    }
+
+    .select-option{
+
+        .w-full{
+            width: 100%;
+            margin-bottom: 30px;
+
+            .list-opt{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                .item-opt{
+                    width: calc(100% / 4 - 20px);
+                    align-items: center;
+                    border: 1px solid #6A8582;
+                    padding: 0px 0 10px;
+                    border-radius: 10px;
+
+                    &:hover{
+                        background-color: #1A282D;
+                    }
+
+                    h4{
+                        width: 100%;
+                        padding-bottom: 4px;
+                        border-bottom: 1px solid #6A8582;
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+                        font-size: 20px;
+                        color: whitesmoke;
+                    }
+                    span{
+                        font-size: 13px;
+                        color: #b0bcb6;
+                    }
+                    .number{
+                        font-weight: 500;
+                        font-size: 16px;
+                        color: aliceblue;
+                    }
+                }
+
+                .active{
+                    border: 1px solid #249f4f;
+                    h4{
+                        background-color: #249f4f;
+                    }
+                }
+            }
+        }
+    }
+}
