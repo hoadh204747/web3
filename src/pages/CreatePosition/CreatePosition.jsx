@@ -3,6 +3,8 @@ import './create_pos.scss'
 import PriceChart from '../../components/PriceChart';
 import TableData from '../../components/Table/TableData';
 import LiquidityDensity from '../../components/LiquidityDensity';
+import { pool_tier } from '../../dummyData/tier_pool';
+import Tooltip from '@mui/material/Tooltip';
 
 const CreatePosition = () => {
 
@@ -53,27 +55,26 @@ const CreatePosition = () => {
                 <p>Select a pool tier</p>
                 <div className='d-flex w-full'>
                     <div className="list-opt">
-                        {[0, 1, 2, 3].map((index) => (
+                        {pool_tier.pools.map((pool, index) => (
                             <div
                                 key={index}
-                                className={`item-opt d-flex flex-column gap-2 ${activeIndex === index ? 'active' : ''}`}
+                                className={`item-opt d-flex flex-column gap-2 ${activeIndex === index ? 'active' : ''} ${pool_tier.bestPoolID === index ? 'pool' : ''}`}
                                 onClick={() => handleClick(index)}
                             >
-
-                                    <h4>0.01% fees</h4>
-                                    <div className='d-flex flex-column'>
-                                        <span>volume_50d</span>
-                                        <div className='number'>$16.466.676</div>
-                                    </div>
-                                    <div className='d-flex flex-column'>
-                                        <span>volume_50d</span>
-                                        <div className='number'>$16.466.676</div>
-                                    </div>
-                                    <div className='d-flex flex-column'>
-                                        <span>volume_50d</span>
-                                        <div className='number'>$16.466.676</div>
-                                    </div>
+                                <h4>{pool.feeTier} fees</h4>
+                                <div className='d-flex flex-column'>
+                                    <span>volume_30d</span>
+                                    <div className='number'>${Number((pool.volumeUSD)).toFixed(1)}</div>
                                 </div>
+                                <div className='d-flex flex-column'>
+                                    <span>feeUSD</span>
+                                    <div className='number'>${Number((pool.feesUSD)).toFixed(1)}</div>
+                                </div>
+                                <div className='d-flex flex-column'>
+                                    <span>txCount</span>
+                                    <div className='number'>${pool.txCount}</div>
+                                </div>
+                            </div>
 
                         ))}
 
@@ -84,13 +85,15 @@ const CreatePosition = () => {
             <div className="price-min-max">
 
             </div>
-            <div style={{background: 'linear-gradient(180deg, #1E292D 0%, #031116 100%)',  padding: '10px', width:'100%'}}>
-                <PriceChart/>
+            <div className='wrap-chart'>
+                <div style={{ background: 'linear-gradient(180deg, #1E292D 0%, #031116 100%)' }}>
+                    <PriceChart />
+                </div>
+                <div>
+                    <LiquidityDensity />
+                </div>
             </div>
-            <div>
-                <LiquidityDensity/>
-            </div>
-            <TableData/>
+            <TableData />
         </div>
     );
 }

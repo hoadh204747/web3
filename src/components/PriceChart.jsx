@@ -1,20 +1,36 @@
 import React from 'react';
-import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from 'recharts';
+import { LineChart, XAxis, YAxis, Tooltip,  Line } from 'recharts';
 
 import { data } from '../dummyData/data';
 
 const PriceChart = () => {
 
+    data.price_30_day.forEach(item => {
+        const timestamp = item.date * 1000; // UNIX timestamp là tính bằng giây, Date trong JS là tính bằng mili giây
+        const dateObject = new Date(timestamp);
+        if (!isNaN(dateObject.getTime())) {
+            const day = String(dateObject.getUTCDate()).padStart(2, '0');
+            const month = String(dateObject.getUTCMonth() + 1).padStart(2, '0'); // Tháng được tính từ 0 nên cần cộng thêm 1
+            const formattedDate = `${day}/${month}`;
+            item.date = formattedDate;
+        } else {
+            console.error('Invalid timestamp:', item.date);
+        }
+    });
+
+    const formatPrice = (price) => {
+        return Number(price).toFixed(2)
+    }
+
     return (
 
 
-        <LineChart width={1000} height={300} data={data.price_30_day}
+        <LineChart width={500} height={400} data={data.price_30_day}
             margin={{ top: 40, right: 30, left: 20, bottom: 20 }}>
-            <XAxis dataKey="date" label={{ value: 'Date', position: 'insideBottomLeft', offset: -15 }} tick={{ fill: 'white', fontSize:12 }} />
-            <YAxis label={{ value: 'Price', angle: -90, position: 'insideLeft', offset: -15 }} tick={{ fill: 'white', fontSize:12 }} />
-            <Tooltip />
-            {/* <Legend /> */}
-            <Line type="monotone" dataKey="price"  />
+            <XAxis dataKey="date"  tick={{ fill: 'white', fontSize:12 }} />
+            <YAxis  tick={{ fill: 'white', fontSize:12 }}/>
+            <Tooltip formatter={formatPrice} />
+            <Line type="monotone" dataKey="price"/>
         </LineChart>
 
     );

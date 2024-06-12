@@ -114,12 +114,33 @@
                 }
 
                 .active{
-                    border: 1px solid #249f4f;
+                    border: 1px solid #249f4f !important;
                     h4{
-                        background-color: #249f4f;
+                        background-color: #249f4f !important;
+                    }
+                }
+
+                @keyframes border-flow {
+                    0% {
+                        background-position: 0 0;
+                    }
+                    100% {
+                        background-position: 100% 0;
+                    }
+                }
+
+                .pool{
+                    border: 1px solid #b3da41;
+                    h4{
+                        background-color: #b3da41;
                     }
                 }
             }
         }
+    }
+    .wrap-chart{
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
     }
 }

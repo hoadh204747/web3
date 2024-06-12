@@ -18,11 +18,11 @@ const LiquidityDensity = () => {
       };
 
     return (  
-        <BarChart width={1000} height={500} data={dataLiquidity}
+        <BarChart width={500} height={400} data={dataLiquidity}
                     margin={{left: 50}} 
         >
-            <XAxis dataKey={keys[0]} tick={{ fill: 'white', fontSize:'13' }} />
-            <YAxis tickFormatter={formatYAxis} tick={{ fill: 'white', fontSize:'13' }} />
+            <XAxis dataKey={keys[0]} tick={false}  />
+            <YAxis tickFormatter={formatYAxis} tick={false}  />
             <Tooltip/>
             <Bar dataKey={keys[1]} fill="#8884d8"/>
         </BarChart>
