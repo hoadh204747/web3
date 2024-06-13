@@ -1,12 +1,15 @@
 import React from 'react';
 import { LineChart, XAxis, YAxis, Tooltip,  Line } from 'recharts';
 
-import { data } from '../dummyData/data';
 
-const PriceChart = () => {
+// import { data } from '../dummyData/data';
+const PriceChart = (price_30_day) => {
+    const prices = price_30_day;
+    // console.log(prices)
+    prices.price_30_day.forEach(item => {
+        const timestamp = parseInt(item.date) * 1000; // UNIX timestamp là tính bằng giây, Date trong JS là tính bằng mili giây
+        console.log(timestamp, item.date);
 
-    data.price_30_day.forEach(item => {
-        const timestamp = item.date * 1000; // UNIX timestamp là tính bằng giây, Date trong JS là tính bằng mili giây
         const dateObject = new Date(timestamp);
         if (!isNaN(dateObject.getTime())) {
             const day = String(dateObject.getUTCDate()).padStart(2, '0');
@@ -25,7 +28,7 @@ const PriceChart = () => {
     return (
 
 
-        <LineChart width={500} height={400} data={data.price_30_day}
+        <LineChart width={500} height={400} data={prices.price_30_day}
             margin={{ top: 40, right: 30, left: 20, bottom: 20 }}>
             <XAxis dataKey="date"  tick={{ fill: 'white', fontSize:12 }} />
             <YAxis  tick={{ fill: 'white', fontSize:12 }}/>

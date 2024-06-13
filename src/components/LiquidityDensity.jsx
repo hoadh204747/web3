@@ -1,9 +1,8 @@
 import { BarChart, XAxis, YAxis, Tooltip, Bar } from "recharts";
-import { data } from "../dummyData/data";
 
-const LiquidityDensity = () => {
-
-    const dataLiquidity = data.liquidity_density.liquidity
+const LiquidityDensity = (liquidityDensity) => {
+    const dataLiquidity = liquidityDensity.liquidityDensity.liquidity;
+    
     const keys = Object.keys(dataLiquidity[0])
 
     const formatYAxis = (tickItem) => {
