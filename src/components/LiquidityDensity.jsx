@@ -1,4 +1,4 @@
-import { BarChart, XAxis, YAxis, Tooltip, Bar } from "recharts";
+import { BarChart, XAxis, YAxis, Tooltip, Bar, ReferenceLine } from "recharts";
 import { data } from "../dummyData/data";
 
 const LiquidityDensity = () => {
@@ -19,12 +19,14 @@ const LiquidityDensity = () => {
 
     return (  
         <BarChart width={500} height={400} data={dataLiquidity}
-                    margin={{left: 50}} 
+                    margin={{left: 0}} 
         >
-            <XAxis dataKey={keys[0]} tick={false}  />
-            <YAxis tickFormatter={formatYAxis} tick={false}  />
+            <XAxis dataKey={keys[0]}  tick={true} tickLine={true} />
+            <YAxis tickFormatter={formatYAxis} tick={false} tickLine={true} />
             <Tooltip/>
             <Bar dataKey={keys[1]} fill="#8884d8"/>
+            <ReferenceLine x={193200} stroke="red" label={{ value: '', position: 'insideTop', fill: 'red' }} />
+            <ReferenceLine x={194200} stroke="green" label={{ value: '', position: 'insideTop', fill: 'green' }} />
         </BarChart>
     );
 }

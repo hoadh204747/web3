@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, XAxis, YAxis, Tooltip,  Line } from 'recharts';
+import { LineChart, XAxis, YAxis, Tooltip,  Line, ReferenceLine } from 'recharts';
 
 import { data } from '../dummyData/data';
 
@@ -31,6 +31,8 @@ const PriceChart = () => {
             <YAxis  tick={{ fill: 'white', fontSize:12 }}/>
             <Tooltip formatter={formatPrice} />
             <Line type="monotone" dataKey="price"/>
+            <ReferenceLine y={1000} stroke="red" label={{ value: '', position: 'insideTop', fill: 'red' }} />
+        <ReferenceLine y={2000} stroke="green" label={{ value: '', position: 'insideTop', fill: 'green' }} />
         </LineChart>
 
     );

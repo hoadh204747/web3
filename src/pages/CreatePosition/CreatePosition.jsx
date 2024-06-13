@@ -89,7 +89,7 @@ const CreatePosition = () => {
                 <div style={{ background: 'linear-gradient(180deg, #1E292D 0%, #031116 100%)' }}>
                     <PriceChart />
                 </div>
-                <div>
+                <div style={{ background: 'linear-gradient(180deg, #1E292D 0%, #031116 100%)' }}>
                     <LiquidityDensity />
                 </div>
             </div>
