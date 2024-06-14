@@ -1,6 +1,6 @@
 import React from 'react';
-import { LineChart, XAxis, YAxis, Tooltip,  Line, ReferenceLine } from 'recharts';
-import CustomTooltip from 'recharts';
+import { LineChart, XAxis, YAxis, Tooltip,  Line, ReferenceLine, Text } from 'recharts';
+
 
 import { data } from '../dummyData/data';
 
@@ -28,10 +28,12 @@ const PriceChart = () => {
 
         <LineChart width={500} height={400} data={data.price_30_day}
             margin={{ top: 40, right: 30, left: 20, bottom: 20 }}>
+                <Text x={250} y={20} fill="black" textAnchor="middle" dominantBaseline="middle" style={{ fontSize: '20px' }}>
+                HUHU
+            </Text>
             <XAxis dataKey="date"  tick={{ fill: 'white', fontSize:12 }} />
             <YAxis  tick={{ fill: 'white', fontSize:12 }}/>
             <Tooltip formatter={formatPrice}
-                
             />
             <Line type="monotone" dataKey="price"/>
             <ReferenceLine y={1000} stroke="red" label={{ value: '', position: 'insideTop', fill: 'red' }}  />
