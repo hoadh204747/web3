@@ -23,7 +23,7 @@ const LiquidityDensity = () => {
         >
             <XAxis dataKey={keys[2]}  tick={false} tickLine={true} />
             <YAxis tickFormatter={formatYAxis} tick={false} tickLine={true} />
-            <Tooltip/>
+            <Tooltip  />
             <Bar dataKey={keys[1]} fill="#8884d8"/>
             <ReferenceLine x={0.0002599581500253149} stroke="red" label={{ value: '', position: 'insideTop', fill: 'red' }}  />
             <ReferenceLine x={0.00032816253113122625} stroke="green" label={{ value: '', position: 'insideTop', fill: 'green' }} />

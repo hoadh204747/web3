@@ -5,6 +5,7 @@ import TableData from '../../components/Table/TableData';
 import LiquidityDensity from '../../components/LiquidityDensity';
 import { pool_tier } from '../../dummyData/tier_pool';
 import { data } from '../../dummyData/data';
+import FeesChart from '../../components/FeesChart';
 
 const CreatePosition = () => {
 
@@ -68,7 +69,7 @@ const CreatePosition = () => {
                             >
 
                                 <h4>{pool.feeTier}
-                                     <> </>
+                                    <> </>
                                     {
                                         pool_tier.bestPoolID === index
                                             ?
@@ -127,8 +128,9 @@ const CreatePosition = () => {
                     <LiquidityDensity />
                 </div>
             </div>
-            
-                <TableData />
+
+            <TableData />
+            <FeesChart />
 
         </div>
     );
