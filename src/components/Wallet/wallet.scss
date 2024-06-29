@@ -1,0 +1,29 @@
+.custom-table .ant-table-thead > tr > th {
+    background-color: #111 !important;
+    color: cadetblue !important;
+}
+
+.custom-table .ant-table-tbody > tr > td {
+    background-color: #111 !important;
+    color: cadetblue !important;
+}
+
+.custom-table .ant-table-tbody > tr > td:hover{
+    background-color: #111 !important;
+    color: cadetblue !important;
+}
+
+.custom-table .ant-table-expanded-row {
+    background-color: #111 !important;
+    color: cadetblue !important;
+}
+
+.custom-table .ant-table-tbody > tr > td > .ant-table-row-expand-icon {
+    margin-left: auto; /* Move the expand icon to the right */
+}
+
+.ant-table {
+    background-color: #111 !important;
+    color: cadetblue !important;
+}
+
